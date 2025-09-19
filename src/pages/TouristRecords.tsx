@@ -24,7 +24,7 @@ const TouristRecords = () => {
   const tourists = [
     {
       id: "TST-A7X9M2",
-      name: "John Doe",
+      name: "Kshitiz Sharma",
       idNumber: "ABCD1234****",
       lastLocation: "Historic Center",
       safetyScore: 92,
@@ -35,7 +35,7 @@ const TouristRecords = () => {
     },
     {
       id: "TST-B8Y4N7",
-      name: "Jane Smith",
+      name: "Atishay Gupta",
       idNumber: "EFGH5678****",
       lastLocation: "Tourist District",
       safetyScore: 88,
@@ -46,7 +46,7 @@ const TouristRecords = () => {
     },
     {
       id: "TST-C9Z1P5",
-      name: "Mike Johnson",
+      name: "Manan Verma",
       idNumber: "IJKL9012****",
       lastLocation: "Market Area",
       safetyScore: 76,
@@ -57,7 +57,7 @@ const TouristRecords = () => {
     },
     {
       id: "TST-D3K8Q6",
-      name: "Sarah Wilson",
+      name: "Priya Singh",
       idNumber: "MNOP3456****",
       lastLocation: "Beach Front",
       safetyScore: 94,
@@ -68,7 +68,7 @@ const TouristRecords = () => {
     },
     {
       id: "TST-E7L2R9",
-      name: "David Brown",
+      name: "Arjun Patel",
       idNumber: "QRST7890****",
       lastLocation: "Mountain Trail",
       safetyScore: 65,

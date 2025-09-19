@@ -32,18 +32,11 @@ const AuthorityDashboard = () => {
   };
 
   const recentAlerts = [
-    { id: 1, type: "SOS", tourist: "John Doe", location: "Market Area", time: "2 mins ago", status: "active" },
-    { id: 2, type: "Geo-fence", tourist: "Jane Smith", location: "Construction Zone", time: "15 mins ago", status: "resolved" },
-    { id: 3, type: "Anomaly", tourist: "Mike Johnson", location: "Tourist District", time: "1 hour ago", status: "investigating" }
+    { id: 1, type: "SOS", tourist: "Kshitiz Sharma", location: "Market Area", time: "2 mins ago", status: "active" },
+    { id: 2, type: "Geo-fence", tourist: "Atishay Gupta", location: "Construction Zone", time: "15 mins ago", status: "resolved" },
+    { id: 3, type: "Anomaly", tourist: "Manan Verma", location: "Tourist District", time: "1 hour ago", status: "investigating" }
   ];
 
-  const touristClusters = [
-    { zone: "Historic Center", count: 324, safetyLevel: "safe" },
-    { zone: "Tourist District", count: 289, safetyLevel: "safe" },
-    { zone: "Market Area", count: 156, safetyLevel: "warning" },
-    { zone: "Beach Front", count: 98, safetyLevel: "safe" },
-    { zone: "Mountain Trail", count: 25, safetyLevel: "warning" }
-  ];
 
   const handleLogout = () => {
     toast({
@@ -186,58 +179,7 @@ const AuthorityDashboard = () => {
           </Card>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Real-time Map */}
-          <Card className="card-elevated">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <MapPin className="h-5 w-5 text-primary" />
-                <span>Real-time Tourist Clusters</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="relative h-80 bg-gradient-to-br from-primary/10 to-accent rounded-lg overflow-hidden mb-4">
-                <img 
-                  src={dashboardImage} 
-                  alt="Tourist monitoring dashboard"
-                  className="w-full h-full object-cover opacity-70"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-                
-                {/* Heat map indicators */}
-                <div className="absolute top-4 left-4 w-8 h-8 bg-safety rounded-full animate-pulse-glow flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">324</span>
-                </div>
-                <div className="absolute top-12 right-8 w-8 h-8 bg-safety rounded-full animate-pulse-glow flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">289</span>
-                </div>
-                <div className="absolute bottom-16 left-8 w-8 h-8 bg-warning rounded-full animate-pulse-glow flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">156</span>
-                </div>
-                <div className="absolute bottom-8 right-12 w-6 h-6 bg-safety rounded-full animate-pulse-glow flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">98</span>
-                </div>
-              </div>
-
-              {/* Zone List */}
-              <div className="space-y-3">
-                {touristClusters.map((cluster, index) => (
-                  <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-accent/50 hover:bg-accent transition-smooth">
-                    <div className="flex items-center space-x-3">
-                      <div className={`w-3 h-3 rounded-full ${
-                        cluster.safetyLevel === 'safe' ? 'bg-safety' : 'bg-warning'
-                      }`}></div>
-                      <span className="font-medium">{cluster.zone}</span>
-                    </div>
-                    <Badge variant="secondary">
-                      {cluster.count} tourists
-                    </Badge>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
+        <div className="grid gap-8">
           {/* Recent Alerts */}
           <Card className="card-elevated">
             <CardHeader>
