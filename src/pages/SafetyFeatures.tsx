@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import KazirangaMap from "@/components/KazirangaMap";
 
 const SafetyFeatures = () => {
   const navigate = useNavigate();
@@ -25,15 +26,14 @@ const SafetyFeatures = () => {
   const [locationSharing, setLocationSharing] = useState(false);
   const [safetyScore] = useState(87); // Mock safety score
 
-  // North East India geo-fencing zones
+  // Kaziranga National Park geo-fencing zones
   const zones = [
-    { name: "Guwahati City Center", status: "safe", visitors: 128 },
-    { name: "Kaziranga National Park", status: "safe", visitors: 94 },
-    { name: "Shillong Peak Area", status: "safe", visitors: 67 },
-    { name: "Tawang Monastery", status: "safe", visitors: 45 },
-    { name: "Imphal Market", status: "warning", visitors: 23 },
-    { name: "Border Area - Myanmar", status: "restricted", visitors: 3 },
-    { name: "Remote Hill Region", status: "restricted", visitors: 1 }
+    { name: "Central Range", status: "safe", visitors: 45 },
+    { name: "Western Range", status: "safe", visitors: 32 },
+    { name: "Eastern Range", status: "safe", visitors: 28 },
+    { name: "Burapahar Range", status: "warning", visitors: 15 },
+    { name: "Buffer Zone", status: "restricted", visitors: 3 },
+    { name: "Core Wilderness Area", status: "restricted", visitors: 1 }
   ];
 
   const handleSOS = () => {
@@ -200,7 +200,7 @@ const SafetyFeatures = () => {
                   
                   <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                     <MapPin className="h-4 w-4" />
-                    <span>Current: Guwahati, Assam</span>
+                    <span>Current: Central Range, Kaziranga</span>
                   </div>
                 </div>
               </CardContent>
@@ -209,92 +209,16 @@ const SafetyFeatures = () => {
 
           {/* Map and Zones */}
           <div className="grid lg:grid-cols-2 gap-6 mt-6">
-            {/* Mock Map */}
+            {/* Kaziranga National Park Map */}
             <Card className="card-elevated">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <Map className="h-5 w-5 text-primary" />
-                  <span>Geo-fencing Map</span>
+                  <span>Kaziranga National Park Map</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="relative h-80 bg-gradient-to-br from-emerald-50 to-blue-50 rounded-lg overflow-hidden border border-border">
-                  {/* North East India styled map background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-green-100/30 to-blue-100/30"></div>
-                  
-                  {/* Map outline suggestion for NE India */}
-                  <div className="absolute inset-2 border-2 border-dashed border-muted-foreground/20 rounded-lg"></div>
-                  
-                  {/* Guwahati (Assam) - Major city */}
-                  <div className="zone-safe absolute top-16 left-12 w-24 h-18 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-4 h-4 bg-safety rounded-full mx-auto mb-1 animate-pulse-glow"></div>
-                      <span className="text-xs font-medium text-safety-foreground">Guwahati</span>
-                    </div>
-                  </div>
-                  
-                  {/* Kaziranga National Park */}
-                  <div className="zone-safe absolute top-8 right-16 w-26 h-20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-3 h-3 bg-safety rounded-full mx-auto mb-1"></div>
-                      <span className="text-xs text-safety-foreground">Kaziranga</span>
-                    </div>
-                  </div>
-                  
-                  {/* Shillong (Meghalaya) */}
-                  <div className="zone-safe absolute top-24 left-20 w-20 h-16 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-3 h-3 bg-safety rounded-full mx-auto mb-1"></div>
-                      <span className="text-xs text-safety-foreground">Shillong</span>
-                    </div>
-                  </div>
-                  
-                  {/* Tawang (Arunachal Pradesh) */}
-                  <div className="zone-safe absolute top-4 right-8 w-20 h-16 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-3 h-3 bg-safety rounded-full mx-auto mb-1"></div>
-                      <span className="text-xs text-safety-foreground">Tawang</span>
-                    </div>
-                  </div>
-                  
-                  {/* Imphal Market (Manipur) - Warning zone */}
-                  <div className="zone-warning absolute bottom-20 left-16 w-22 h-16 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-3 h-3 bg-warning rounded-full mx-auto mb-1"></div>
-                      <span className="text-xs text-warning-foreground">Imphal</span>
-                    </div>
-                  </div>
-                  
-                  {/* Myanmar Border - Restricted */}
-                  <div className="zone-restricted absolute bottom-8 right-6 w-24 h-16 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-3 h-3 bg-alert rounded-full mx-auto mb-1"></div>
-                      <span className="text-xs text-alert-foreground">Border</span>
-                    </div>
-                  </div>
-                  
-                  {/* Remote Hill Region - Restricted */}
-                  <div className="zone-restricted absolute bottom-16 right-20 w-20 h-14 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-2 h-2 bg-alert rounded-full mx-auto mb-1"></div>
-                      <span className="text-xs text-alert-foreground">Hills</span>
-                    </div>
-                  </div>
-                  
-                  {/* Your current location in Guwahati */}
-                  <div className="absolute top-20 left-16 animate-pulse-glow">
-                    <div className="w-5 h-5 bg-primary rounded-full border-3 border-white shadow-xl"></div>
-                    <div className="absolute -bottom-6 -left-2 text-xs font-bold text-primary">YOU</div>
-                  </div>
-                  
-                  {/* Geographic labels */}
-                  <div className="absolute top-2 left-2 text-xs text-muted-foreground font-medium">
-                    North East India
-                  </div>
-                  <div className="absolute bottom-2 right-2 text-xs text-muted-foreground">
-                    Live Tracking Active
-                  </div>
-                </div>
+                <KazirangaMap className="w-full" />
                 
                 <div className="flex justify-between mt-4 text-sm">
                   <div className="flex items-center space-x-2">
